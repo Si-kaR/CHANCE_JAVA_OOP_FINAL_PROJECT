@@ -21,20 +21,21 @@ A simple Java application for managing election data, including voters, candidat
 
 ### Usage
 
-1. Navigate into the directory.
+1. Navigate into the project directory.
 
-2. To view Robert's code, execute the command below
+2. To view Robert's code, execute the command below:
 
     ```bash
     git checkout robert
     ```
-3. You can create your branch and work in there just as Robert has done
-Use the command and once done you can work your stuff
+
+3. You can create your branch and work in there just as Robert has done. Use the following command to create your branch:
 
     ```bash
     git checkout -b roseline
     ```
-Always do what's below to be sure you're in your own branch to work in.
+
+4. Always check you're in your own branch before starting work:
 
     ```bash
     git branch
@@ -42,40 +43,7 @@ Always do what's below to be sure you're in your own branch to work in.
 
 ### Example
 
-4. Use the basic functions to share store and/or share code
-
-Step 1
-
-    ```bash
-    git status // To check if any changes are actually being made in your folder (dir)
-    ```
-Step 2
-    
-```bash
-    git add . // To add every file
-    ```    
-or
-   
-   ```bash
-    git add <filename> to add specific files
-   ```
-
-You can then "git status" again again to see the difference
-
-Step 3
-
-    ```bash
-    git commit -m "short message" // add a short message explaning what you did that you're uploading for us
-    ```
-
-Step 4
-
-    ```bash
-    git push // This finally ends everything
-    ```
-
-
-Here is an example the `Database` class to store and retrieve data:
+Here is an example of how to use the `Database` class to store and retrieve data:
 
 ```java
 public class Main {
