@@ -68,7 +68,7 @@ public class Main {
         System.out.println(db.getElectionData("election789"));
     }
 }
-
+```
 
 
 ### Basic Git Commands for Collaboration
