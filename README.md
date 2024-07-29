@@ -1,12 +1,6 @@
 # Election Management System
 
-A simple Java application for managing election data, including voters, candidates, and elections. This project demonstrates basic CRUD operations using a `Database` class to store and retrieve information.
-
-## Features
-
-- Store and retrieve voter data
-- Store and retrieve candidate data
-- Store and retrieve election data
+A simple Java application for managing election data, including voters, candidates, and elections.
 
 ## Getting Started
 
@@ -27,22 +21,60 @@ A simple Java application for managing election data, including voters, candidat
 
 ### Usage
 
-1. Navigate to the `src` directory.
-2. Compile the Java files:
+1. Navigate into the directory.
+
+2. To view Robert's code, execute the command below
 
     ```bash
-    javac *.java
+    git checkout robert
     ```
-
-3. Run the `Database` class:
+3. You can create your branch and work in there just as Robert has done
+Use the command and once done you can work your stuff
 
     ```bash
-    java Database
+    git checkout -b roseline
+    ```
+Always do what's below to be sure you're in your own branch to work in.
+
+    ```bash
+    git branch
     ```
 
 ### Example
 
-Here is an example of how to use the `Database` class to store and retrieve data:
+4. Use the basic functions to share store and/or share code
+
+Step 1
+
+    ```bash
+    git status // To check if any changes are actually being made in your folder (dir)
+    ```
+Step 2
+    
+    ```bash
+    git add . // To add every file
+    ```
+    or
+   
+   ```bash
+    git add <filename> to add specific files
+   ```
+    You can then "git status" again again to see the difference
+
+Step 3
+
+    ```bash
+    git commit -m "short message" // add a short message explaning what you did that you're uploading for us
+    ```
+
+Step 4
+
+    ```bash
+    git push // This finally ends everything
+    ```
+
+
+Here is an example the `Database` class to store and retrieve data:
 
 ```java
 public class Main {
