@@ -51,15 +51,16 @@ Step 1
     ```
 Step 2
     
-    ```bash
+```bash
     git add . // To add every file
-    ```
-    or
+    ```    
+or
    
    ```bash
     git add <filename> to add specific files
    ```
-    You can then "git status" again again to see the difference
+
+You can then "git status" again again to see the difference
 
 Step 3
 
