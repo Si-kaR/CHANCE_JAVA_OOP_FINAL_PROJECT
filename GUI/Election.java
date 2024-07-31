@@ -1,10 +1,12 @@
 public class Election {
     private String electionType;
+    private String id; // Add this field
     private String startDate;
     private String endDate;
 
-    public Election(String electionType, String startDate, String endDate) {
+    public Election(String electionType, String id, String startDate, String endDate) {
         this.electionType = electionType;
+        this.id =id;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -17,6 +19,15 @@ public class Election {
     public void setElectionType(String electionType) {
         this.electionType = electionType;
     }
+
+    public String getId() {
+        return id; // Add this method
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
 
     public String getStartDate() {
         return startDate;
