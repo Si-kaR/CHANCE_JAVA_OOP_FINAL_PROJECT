@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 public class Candidate {
     private String name;
     private String partyAffiliation;
@@ -28,8 +30,11 @@ public class Candidate {
         this.partyAffiliation = partyAffiliation;
     }
 
-    public String getManifesto() {
-        return manifesto;
+    // public String getManifesto() {
+    //     return manifesto;
+    // }
+    public void displayManifesto() {
+        JOptionPane.showMessageDialog(null, "Manifesto: " + manifesto, "Manifesto", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void setManifesto(String manifesto) {

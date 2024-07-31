@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import javax.swing.JOptionPane; // Java GUI Library
 
-
 public class VoterDashboard {
     private Voter voter;
     private Database database;
@@ -11,35 +10,24 @@ public class VoterDashboard {
         this.database = database;
     }
 
-    // public void viewRegistrationStatus() {
-    //     if (database.getVoter(voter.getId()) != null) {
-    //         System.out.println("You are registered to vote.");
-    //     } else {
-    //         System.out.println("You are not registered to vote.");
-    //     }
-    // }
     public void viewRegistrationStatus() {
-        if (database.getVoter(voter.getId()) != null) {
-            JOptionPane.showMessageDialog(null, "You are registered to vote.");
+        if (database.getVoterData(voter.getId()) != null) { // Ensure the correct method is called
+            JOptionPane.showMessageDialog(null, "You are registered to vote.", "Registration Status", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "You are not registered to vote.");
+            JOptionPane.showMessageDialog(null, "You are not registered to vote.", "Registration Status", JOptionPane.WARNING_MESSAGE);
         }
     }
 
-    // public void viewUpcomingElections() {
-    //     ArrayList<Election> elections = database.getElections();
-    //     System.out.println("Upcoming Elections:");
-    //     for (Election election : elections) {
-    //         System.out.println("Type: " + election.getElectionType() + ", Start Date: " + election.getStartDate() + ", End Date: " + election.getEndDate());
-    //     }
-    // }
     public void viewUpcomingElections() {
         ArrayList<Election> elections = database.getElections();
         StringBuilder message = new StringBuilder("Upcoming Elections:\n");
         for (Election election : elections) {
-            message.append("Type: ").append(election.getElectionType()).append(", Start Date: ").append(election.getStartDate()).append(", End Date: ").append(election.getEndDate()).append("\n");
+            message.append("Type: ").append(election.getElectionType())
+                   .append(", Start Date: ").append(election.getStartDate())
+                   .append(", End Date: ").append(election.getEndDate())
+                   .append("\n");
         }
-        JOptionPane.showMessageDialog(null, message.toString());
+        JOptionPane.showMessageDialog(null, message.toString(), "Upcoming Elections", JOptionPane.INFORMATION_MESSAGE);
     }
 }
 
@@ -47,4 +35,106 @@ public class VoterDashboard {
 
 
 
-//  - - - -  - - - -  - - - -  - - - -  - - - -  - - - - GUI SYNTAX
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import java.util.ArrayList;
+// import javax.swing.JOptionPane; // Java GUI Library
+
+
+// public class VoterDashboard {
+//     private Voter voter;
+//     private Database database;
+
+//     public VoterDashboard(Voter voter, Database database) {
+//         this.voter = voter;
+//         this.database = database;
+//     }
+
+//     // public void viewRegistrationStatus() {
+//     //     if (database.getVoter(voter.getId()) != null) {
+//     //         System.out.println("You are registered to vote.");
+//     //     } else {
+//     //         System.out.println("You are not registered to vote.");
+//     //     }
+//     // }
+//     public void viewRegistrationStatus() {
+//         if (database.getVoter(voter.getId()) != null) {
+//             JOptionPane.showMessageDialog(null, "You are registered to vote.");
+//         } else {
+//             JOptionPane.showMessageDialog(null, "You are not registered to vote.");
+//         }
+//     }
+
+//     // public void viewUpcomingElections() {
+//     //     ArrayList<Election> elections = database.getElections();
+//     //     System.out.println("Upcoming Elections:");
+//     //     for (Election election : elections) {
+//     //         System.out.println("Type: " + election.getElectionType() + ", Start Date: " + election.getStartDate() + ", End Date: " + election.getEndDate());
+//     //     }
+//     // }
+//     public void viewUpcomingElections() {
+//         ArrayList<Election> elections = database.getElections();
+//         StringBuilder message = new StringBuilder("Upcoming Elections:\n");
+//         for (Election election : elections) {
+//             message.append("Type: ").append(election.getElectionType()).append(", Start Date: ").append(election.getStartDate()).append(", End Date: ").append(election.getEndDate()).append("\n");
+//         }
+//         JOptionPane.showMessageDialog(null, message.toString());
+//     }
+// }
+
+
+
+
+
+// //  - - - -  - - - -  - - - -  - - - -  - - - -  - - - - GUI SYNTAX
