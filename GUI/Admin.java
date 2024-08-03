@@ -1,4 +1,4 @@
-import javax.swing.JOptionPane; // Ensure you have imported the necessary library
+import javax.swing.JOptionPane;
 
 public class Admin {
     private String name;
@@ -18,15 +18,11 @@ public class Admin {
     }
 
     public void manageUsers() {
-        // Implementation for managing users
         JOptionPane.showMessageDialog(null, "Managing users...", "Admin Action", JOptionPane.INFORMATION_MESSAGE);
-        // Add specific user management logic here
     }
 
     public void setupElections() {
-        // Implementation for setting up elections
         JOptionPane.showMessageDialog(null, "Setting up elections...", "Admin Action", JOptionPane.INFORMATION_MESSAGE);
-        // Add specific election setup logic here
     }
 }
 

@@ -1,6 +1,6 @@
 public class Election {
     private String electionType;
-    private String id; // Add this field
+    private String id;
     private String startDate;
     private String endDate;
 
@@ -21,7 +21,7 @@ public class Election {
     }
 
     public String getId() {
-        return id; // Add this method
+        return id;
     }
 
     public void setId(String id) {
@@ -56,4 +56,4 @@ public class Election {
 
 
 
-//  - - - -  - - - -  - - - -  - - - -  - - - -  - - - - NO  GUI SYNTAX
+//  - - - -  - - - -  - - - -  - - - -  - - - -  - - - - NO  GUI SYNTAX needed for this class

@@ -2,36 +2,23 @@ import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 public class Ballot {
+
+    // storing candidates and votes in array
     private String[] candidates;
     private int[] votes;
     private boolean isAuthenticated;
 
+    // constructor is supposed to initialize the candidates array and set votes array to 0s
     public Ballot(String[] candidates) {
         this.candidates = candidates;
         this.votes = new int[candidates.length];
         this.isAuthenticated = false;
     }
 
-    // public void authenticate(String password) {
-    //     // Simple authentication mechanism (not secure for real-world use)
-    //     if ("secretPassword".equals(password)) {
-    //         isAuthenticated = true;
-    //         System.out.println("Authentication successful.");
-    //     } else {
-    //         System.out.println("Authentication failed.");
-    //     }
-    // }
-    //  public void authenticate(String password) {
-    //     // Simple authentication mechanism (not secure for real-world use)
-    //     if ("secretPassword".equals(password)) {
-    //         isAuthenticated = true;
-    //         JOptionPane.showMessageDialog(null, "Authentication successful.", "Authentication", JOptionPane.INFORMATION_MESSAGE);
-    //     } else {
-    //         JOptionPane.showMessageDialog(null, "Authentication failed.", "Authentication", JOptionPane.ERROR_MESSAGE);
-    //     }
-    // }
+    // method to authenticate password.
+    // if the password matches what has been stored then the Authentication will be successful
+    // else it will be false and authentication will not be allowed
     public void authenticate(String password) {
-        // Simple authentication mechanism (not secure for real-world use)
         if ("secretPassword".equals(password)) {
             isAuthenticated = true;
             JOptionPane.showMessageDialog(null, "Authentication successful.");
@@ -42,21 +29,13 @@ public class Ballot {
 
     
     public void castVote(int candidateIndex) {
-        // if (!isAuthenticated) {
-        //     System.out.println("Error: Not authenticated. Please authenticate before casting a vote.");
-        //     return;
-        // }
+
         if (!isAuthenticated) {
             JOptionPane.showMessageDialog(null, "Error: Not authenticated. Please authenticate before casting a vote.");
             return;
         }
 
-        // if (candidateIndex >= 0 && candidateIndex < candidates.length) {
-        //     votes[candidateIndex]++;
-        //     System.out.println("Vote cast successfully for " + candidates[candidateIndex]);
-        // } else {
-        //     System.out.println("Error: Invalid candidate index.");
-        // }
+
         if (candidateIndex >= 0 && candidateIndex < candidates.length) {
             votes[candidateIndex]++;
             JOptionPane.showMessageDialog(null, "Vote cast successfully for " + candidates[candidateIndex]);
@@ -66,18 +45,12 @@ public class Ballot {
     }
 
     public void displayResults() {
-        // if (!isAuthenticated) {
-        //     System.out.println("Error: Not authenticated. Please authenticate to view results.");
-        //     return;
-        // }
+
         if (!isAuthenticated) {
             JOptionPane.showMessageDialog(null, "Error: Not authenticated. Please authenticate to view results.");
             return;
         }
 
-        // System.out.println("Election Results:");
-        // for (int i = 0; i < candidates.length; i++) {
-        //     System.out.println(candidates[i] + ": " + votes[i] + " votes");
         StringBuilder message = new StringBuilder("Election Results:\n");
         for (int i = 0; i < candidates.length; i++) {
             message.append(candidates[i]).append(": ").append(votes[i]).append(" votes\n");

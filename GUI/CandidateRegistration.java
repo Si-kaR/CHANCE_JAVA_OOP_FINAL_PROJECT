@@ -2,6 +2,7 @@ import java.util.UUID;
 import javax.swing.JOptionPane;
 
 public class CandidateRegistration {
+    // attributes for candidate registration
     private String name;
     private int age;
     private String address;
@@ -10,6 +11,7 @@ public class CandidateRegistration {
     private String position;
 
 
+    // constructor to initialize attributes and it will generate a unique candidate ID
     public CandidateRegistration(String name, int age, String address, String nationalID, String position) {
         this.name = name;
         this.age = age;
@@ -20,15 +22,6 @@ public class CandidateRegistration {
     }
 
 
-    // public void displayCandidateRegistration() {
-    //     System.out.println("Name: " + name);
-    //     System.out.println("Age: " + age);
-    //     System.out.println("Address: " + address);
-    //     System.out.println("National ID: " + nationalID);
-    //     System.out.println("Candidate ID: " + candidateID);
-    //     System.out.println("Position: " + position);
-    //     System.out.println(" ");
-    // }
     public void displayCandidateRegistration() {
         JOptionPane.showMessageDialog(null, "Name: " + name);
         JOptionPane.showMessageDialog(null, "Address: " + address);

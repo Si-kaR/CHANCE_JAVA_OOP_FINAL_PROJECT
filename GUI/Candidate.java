@@ -1,12 +1,15 @@
 import javax.swing.JOptionPane;
 
 public class Candidate {
+
+    // Attributes for Candidate
     private String name;
-    private String id; // Add this field
+    private String id;
     private String partyAffiliation;
     private String manifesto;
     private String password;
 
+    // our constructor
     public Candidate(String name, String id, String partyAffiliation, String manifesto, String password) {
         this.name = name;
         this.id = id;
@@ -25,7 +28,7 @@ public class Candidate {
     }
 
     public String getId() {
-        return id; // Add this method
+        return id;
     }
 
     public void setId(String id) {
@@ -40,9 +43,6 @@ public class Candidate {
         this.partyAffiliation = partyAffiliation;
     }
 
-    // public String getManifesto() {
-    //     return manifesto;
-    // }
     public void displayManifesto() {
         JOptionPane.showMessageDialog(null, "Manifesto: " + manifesto, "Manifesto", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -70,4 +70,4 @@ public class Candidate {
 
 
 
-//  - - - -  - - - -  - - - -  - - - -  - - - -  - - - - NO  GUI SYNTAX
+//  - - - -  - - - -  - - - -  - - - -  - - - -  - - - - NO  GUI SYNTAX.........for this class

@@ -41,35 +41,6 @@ A simple Java application for managing election data, including voters, candidat
     git branch
     ```
 
-### Example
-
-Here is an example of how to use the `Database` class to store and retrieve data:
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        Database db = new Database();
-
-        // Example voter data
-        Voter voter = new Voter("John Doe", "john.doe@example.com", "hashed_password");
-        db.storeVoterData("voter123", voter);
-
-        // Example candidate data
-        Candidate candidate = new Candidate("Jane Smith", "Independent", "Better Future for All", "hashed_password");
-        db.storeCandidateData("candidate456", candidate);
-
-        // Example election data
-        Election election = new Election("Presidential", "2024-11-01", "2024-11-08");
-        db.storeElectionData("election789", election);
-
-        // Retrieve data
-        System.out.println(db.getVoterData("voter123"));
-        System.out.println(db.getCandidateData("candidate456"));
-        System.out.println(db.getElectionData("election789"));
-    }
-}
-```
-
 
 ### Basic Git Commands for Collaboration
 

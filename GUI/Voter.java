@@ -1,11 +1,14 @@
 public class Voter {
-    private String id; // Add this field
+
+    // Attributes For Voter
+    private String id;
     private String name;
     private String email;
     private String password;
 
+    // voter constructor
     public Voter(String id, String name, String email, String password) {
-        this.id = id; // Initialize the id
+        this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -13,7 +16,7 @@ public class Voter {
 
     // Getters and setters
     public String getId() {
-        return id; // Add this method
+        return id;
     }
 
     public void setId(String id) {
@@ -77,52 +80,4 @@ public class Voter {
 
 
 
-// public class Voter {
-//     private String name;
-//     private String email;
-//     private String password;
-
-//     public Voter(String name, String email, String password) {
-//         this.name = name;
-//         this.email = email;
-//         this.password = password;
-//     }
-
-//     // Getters and setters
-//     public String getName() {
-//         return name;
-//     }
-
-//     public void setName(String name) {
-//         this.name = name;
-//     }
-
-//     public String getEmail() {
-//         return email;
-//     }
-
-//     public void setEmail(String email) {
-//         this.email = email;
-//     }
-
-//     public String getPassword() {
-//         return password;
-//     }
-
-//     public void setPassword(String password) {
-//         this.password = password;
-//     }
-
-//     @Override
-//     public String toString() {
-//         return "Voter{" + "name='" + name + '\'' + ", email='" + email + '\'' + ", password='" + password + '\'' +'}';
-//     }
-// }
-
-
-
-
-
-
-
-// //  - - - -  - - - -  - - - -  - - - -  - - - -  - - - - NO  GUI SYNTAX
+// //  - - - -  - - - -  - - - -  - - - -  - - - -  - - - - NO  GUI SYNTAX needed for this class

@@ -3,6 +3,8 @@ import java.util.UUID;
 import javax.swing.JOptionPane;
 
 public class VoterRegistration {
+
+    // attributes
     private String name;
     private int age;
     private String address;
@@ -10,6 +12,7 @@ public class VoterRegistration {
     private String voteID;
 
 
+    // constructor to initialize attributes and generate a unique voter ID
     public VoterRegistration(String name, int age, String address, String nationalID) {
         this.name = name;
         this.age = age;

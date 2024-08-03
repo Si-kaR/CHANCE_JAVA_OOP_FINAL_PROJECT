@@ -11,7 +11,7 @@ public class VoterDashboard {
     }
 
     public void viewRegistrationStatus() {
-        if (database.getVoterData(voter.getId()) != null) { // Ensure the correct method is called
+        if (database.getVoterData(voter.getId()) != null) {
             JOptionPane.showMessageDialog(null, "You are registered to vote.", "Registration Status", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "You are not registered to vote.", "Registration Status", JOptionPane.WARNING_MESSAGE);
