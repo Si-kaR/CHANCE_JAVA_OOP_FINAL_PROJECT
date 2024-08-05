@@ -32,7 +32,7 @@ public class VoterRegistration {
                 "\nAddress: " + address +
                 "\nNational ID: " + id +
                 "\nVoter ID: " + voteID +
-                "\n\\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+                "\n\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
     }
 
     public String getName() {
