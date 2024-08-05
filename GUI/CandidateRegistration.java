@@ -30,13 +30,13 @@ public class CandidateRegistration {
     }
 
     public String getCandidateInfo() {
-        return "Name: " + name +
+        return "\nName: " + name +
                 "\nAge: " + age +
                 "\nAddress: " + address +
                 "\nNational ID: " + nationalID +
                 "\nPosition: " + position +
                 "\nCandidate ID: " + candidateID +
-                "\n\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
+                "\n\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
     }
 
     public String getName() {

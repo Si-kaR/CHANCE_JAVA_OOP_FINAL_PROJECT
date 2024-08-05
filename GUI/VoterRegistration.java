@@ -27,12 +27,12 @@ public class VoterRegistration {
     }
 
     public String getVoterRegistrationInfo() {
-        return "Name: " + name +
+        return "\nName: " + name +
                 "\nAge: " + age +
                 "\nAddress: " + address +
                 "\nNational ID: " + id +
                 "\nVoter ID: " + voteID +
-                "\n\\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
+                "\n\\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
     }
 
     public String getName() {

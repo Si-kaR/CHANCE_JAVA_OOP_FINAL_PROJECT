@@ -5,8 +5,6 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<VoterRegistration> voters = new ArrayList<>();
         ArrayList<CandidateRegistration> candidates = new ArrayList<>();
-        ArrayList<VoterRegistration> voterRegistrations = new ArrayList<>();
-        ArrayList<CandidateRegistration> candidateRegistrations = new ArrayList<>();
 
         // Welcome message and options
         while (true) {
@@ -40,8 +38,10 @@ public class Main {
         }
     }
 
+    
     private static void registerVoter(ArrayList<VoterRegistration> voters) {
         while (true) {
+            // Validating name: Only letters and spaces
             String voterName;
             while (true) {
                 voterName = JOptionPane.showInputDialog("Enter your name");
@@ -54,12 +54,12 @@ public class Main {
 
             int voterAge;
             while (true) {
-                try {
+                try { // Ensuring maximum numbers is 3 digits
                     String ageInput = JOptionPane.showInputDialog("Enter your age");
                     if (ageInput == null || !ageInput.matches("\\d{1,3}")) {
                         JOptionPane.showMessageDialog(null, "Age must be a valid number with up to 3 digits.");
                         continue;
-                    }
+                    } // checking age limit
                     voterAge = Integer.parseInt(ageInput);
                     if (voterAge < 18) {
                         JOptionPane.showMessageDialog(null, "Sorry! You are not of the right age to vote yet.");
@@ -77,6 +77,7 @@ public class Main {
                 continue;
             }
 
+            // Validate National ID: Format should be up to 7 digits followed by a dash and a single letter
             String voterID;
             while (true) {
                 voterID = JOptionPane.showInputDialog("Enter your National ID (e.g., 1234567-A)");
@@ -90,6 +91,7 @@ public class Main {
             VoterRegistration voter = new VoterRegistration(voterName, voterAge, voterAddress, voterID);
             voters.add(voter);
 
+            // registering another voter
             int choice = JOptionPane.showOptionDialog(null, "Do you want to register another voter?",
                     "Register Another Voter", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
                     new String[]{"Yes", "No"}, "Yes");
@@ -100,7 +102,7 @@ public class Main {
         }
     }
 
-
+    
     private static void registerCandidate(ArrayList<CandidateRegistration> candidates) {
         while (true) {
             // Validate name: Only letters and spaces
@@ -180,21 +182,22 @@ public class Main {
     }
 
     private static void viewRegisteredVoters(ArrayList<VoterRegistration> voters) {
-        StringBuilder allVotersInfo = new StringBuilder("ALL REGISTERED VOTERS\n\n");
+        StringBuilder allVotersInfo = new StringBuilder("All Registered Voters:\n\n");
         for (VoterRegistration v : voters) { // adding all voters info to the list for display using the method
             allVotersInfo.append(v.getVoterRegistrationInfo());
         }
         JOptionPane.showMessageDialog(null, allVotersInfo.toString());
     }
 
+
+    
     private static void viewRegisteredCandidates(ArrayList<CandidateRegistration> candidates) {
-        StringBuilder allCandidatesInfo = new StringBuilder("ALL REGISTERED CANDIDATES\n\n");
+        StringBuilder allCandidatesInfo = new StringBuilder("All Registered Candidates:\n\n");
         for (CandidateRegistration c : candidates) { // showing all the candidates with the help of the method. 
             allCandidatesInfo.append(c.getCandidateInfo());
         }
         JOptionPane.showMessageDialog(null, allCandidatesInfo.toString());
     }
-
 
     private static ArrayList<Voter> convertVoters(ArrayList<VoterRegistration> voterRegistrations) {
         ArrayList<Voter> voters = new ArrayList<>();
@@ -204,7 +207,7 @@ public class Main {
         return voters;
     }
 
-
+  
     private static ArrayList<Candidate> convertCandidates(ArrayList<CandidateRegistration> candidateRegistrations) {
         ArrayList<Candidate> candidates = new ArrayList<>();
         for (CandidateRegistration candidateRegistration : candidateRegistrations) {
@@ -222,20 +225,22 @@ public class Main {
                 "Login", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
                 null, loginOptions, loginOptions[0]);
         switch (loginChoice) {
-            case 0:
+            case 0: // Voter Dashboard
                 voterDashboard(voters, voterRegistrations, candidates);
                 break;
-            case 1:
+            case 1: // Candidate Dashboard
                 candidateDashboard(candidates, candidateRegistrations);
                 break;
             default:
                 break;
         }
     }
-        
+
 
     private static void voterDashboard(ArrayList<Voter> voters, ArrayList<VoterRegistration> voterRegistrations, ArrayList<Candidate> candidates) {
         while (true) {
+            // Authenticate the voter first
+            // Prompt for the National ID and validate it
             String voterID;
             while (true) {
                 voterID = JOptionPane.showInputDialog("Enter your National ID (e.g., 1234567-A) to authenticate:");
@@ -246,51 +251,56 @@ public class Main {
                 }
             }
 
-            String password = JOptionPane.showInputDialog("Enter your password");
-            boolean authenticated = true;
-            
+            boolean authenticated = false;
+            boolean idExists = false;
 
-            if (!authenticated) {
-                JOptionPane.showMessageDialog(null, "Authentication failed. Please try again.");
-                continue;
+            for (Voter voter : voters) {
+                if (voter.getId().equals(voterID)) {
+                    idExists = true;
+                    authenticated = true;
+                    break;
+                }
             }
 
-            int choice = JOptionPane.showOptionDialog(null, "Do you want to logout?",
-                    "Logout", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-                    new String[]{"Yes", "No"}, "Yes");
-
-            if (choice == JOptionPane.YES_OPTION) {
-                break;
-            } else if (choice == JOptionPane.NO_OPTION) {
-                for (Voter voter : voters) {
-                    if (voter.getId().equals(voterID) && voter.getPassword().equals(password)) {
-                        JOptionPane.showMessageDialog(null, "Welcome to your voter dashboard, " + voter.getName());
-                        authenticated = true;
-                        // Proceed with voter-specific functionalities
-                        String[] candidateNames = candidates.stream().map(Candidate::getName).toArray(String[]::new);
-                        int candidateIndex = JOptionPane.showOptionDialog(null, "Select a candidate to vote for:", "Vote",
-                            JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
-                            null, candidateNames, candidateNames[0]);
-    
-                        if (candidateIndex >= 0 && candidateIndex < candidateNames.length) {
-                            // Cast vote
-                            Ballot ballot = new Ballot(candidateNames);
-                            ballot.authenticate("secretPassword"); // Assuming the voter knows the password
-                            ballot.castVote(candidateIndex);
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Error: Invalid candidate selection.");
-                        }
+            if (!authenticated) {
+                if (idExists) {
+                    int option = JOptionPane.showConfirmDialog(null, "Authentication failed. Would you like to try again?", "Authentication Failed", JOptionPane.YES_NO_OPTION);
+                    if (option == JOptionPane.NO_OPTION) {
                         return;
-                        // break;
                     }
+                } else {
+                    int option = JOptionPane.showConfirmDialog(null, "It looks like you are not registered. Would you like to register now?", "Not Registered", JOptionPane.YES_NO_OPTION);
+                    if (option == JOptionPane.YES_OPTION) {
+                        registerVoter(voterRegistrations); // Pass the original voterRegistrations list here
+                        JOptionPane.showMessageDialog(null, "Registration successful. Please log in again.");
+                        voters = convertVoters(voterRegistrations); // Update the list after new registrations
+                    }
+                    return;
                 }
+            } else {
+                // Show voting options
+                String[] candidateNames = candidates.stream().map(Candidate::getName).toArray(String[]::new);
+                int candidateIndex = JOptionPane.showOptionDialog(null, "Select a candidate to vote for:", "Vote",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
+                        null, candidateNames, candidateNames[0]);
+
+                if (candidateIndex >= 0 && candidateIndex < candidateNames.length) {
+                    // Cast vote
+                    Ballot ballot = new Ballot(candidateNames);
+                    ballot.authenticate("secretPassword"); // Assuming the voter knows the password
+                    ballot.castVote(candidateIndex);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error: Invalid candidate selection.");
+                }
+                return;
             }
         }
     }
 
-
     private static void candidateDashboard(ArrayList<Candidate> candidates, ArrayList<CandidateRegistration> candidateRegistrations) {
         while (true) {
+            // Authenticate the candidate first
+            // Prompt for the National ID and validate it
             String candidateID;
             while (true) {
                 candidateID = JOptionPane.showInputDialog("Enter your National ID (e.g., 1234567-A) to authenticate:");
@@ -301,40 +311,44 @@ public class Main {
                 }
             }
 
-            String password = JOptionPane.showInputDialog("Enter your password");
             boolean authenticated = false;
-            for (Candidate candidate : candidates) {
-                if (candidate.getId().equals(candidateID) && candidate.getPassword().equals(password)) {
-                    JOptionPane.showMessageDialog(null, "Welcome to your candidate dashboard, " + candidate.getName());
-                    authenticated = true;
+            boolean idExists = false;
 
-                    // Proceed with candidate-specific functionalities
-                    // Show results
-                    String[] candidateNames = candidates.stream().map(Candidate::getName).toArray(String[]::new);
-                    Ballot ballot = new Ballot(candidateNames);
-                    ballot.authenticate("secretPassword"); // Assuming the candidate knows the password
-                    ballot.displayResults();
-                    return;
-                    // break;
+            for (Candidate candidate : candidates) {
+                if (candidate.getId().equals(candidateID)) {
+                    idExists = true;
+                    // Additional authentication logic can be placed here if needed
+                    authenticated = true;
+                    break;
                 }
             }
 
             if (!authenticated) {
-                JOptionPane.showMessageDialog(null, "Authentication failed. Please try again.");
-                continue;
-            }
-
-            int choice = JOptionPane.showOptionDialog(null, "Do you want to logout?",
-                    "Logout", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-                    new String[]{"Yes", "No"}, "Yes");
-
-            if (choice == JOptionPane.YES_OPTION) {
-                break;
+                if (idExists) {
+                    int option = JOptionPane.showConfirmDialog(null, "Authentication failed. Would you like to try again?", "Authentication Failed", JOptionPane.YES_NO_OPTION);
+                    if (option == JOptionPane.NO_OPTION) {
+                        return;
+                    }
+                } else {
+                    int option = JOptionPane.showConfirmDialog(null, "It looks like you are not registered. Would you like to register now?", "Not Registered", JOptionPane.YES_NO_OPTION);
+                    if (option == JOptionPane.YES_OPTION) {
+                        registerCandidate(candidateRegistrations);
+                        JOptionPane.showMessageDialog(null, "Registration successful. Please log in again.");
+                        candidates = convertCandidates(candidateRegistrations);
+                    }
+                    return;
+                }
+            } else {
+                // Show results
+                String[] candidateNames = candidates.stream().map(Candidate::getName).toArray(String[]::new);
+                Ballot ballot = new Ballot(candidateNames);
+                ballot.authenticate("secretPassword"); // Assuming the candidate knows the password
+                ballot.displayResults();
+                return;
             }
         }
     }
 }
-// // - - - -  - - - -  - - - -  - - - -  - - - -  - - - - GUI SYNTAX
 
 
 
