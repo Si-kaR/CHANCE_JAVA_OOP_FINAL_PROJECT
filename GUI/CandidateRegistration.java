@@ -2,7 +2,7 @@ import java.util.UUID;
 import javax.swing.JOptionPane;
 
 public class CandidateRegistration {
-    // attributes for candidate registration
+    // Attributes for candidate registration
     private String name;
     private int age;
     private String address;
@@ -10,8 +10,7 @@ public class CandidateRegistration {
     private String candidateID;
     private String position;
 
-
-    // constructor to initialize attributes and it will generate a unique candidate ID
+    // Constructor to initialize attributes and generate a unique candidate ID
     public CandidateRegistration(String name, int age, String address, String nationalID, String position) {
         this.name = name;
         this.age = age;
@@ -21,7 +20,6 @@ public class CandidateRegistration {
         this.position = position;
     }
 
-
     public void displayCandidateRegistration() {
         JOptionPane.showMessageDialog(null, "Name: " + name);
         JOptionPane.showMessageDialog(null, "Address: " + address);
@@ -30,16 +28,37 @@ public class CandidateRegistration {
         JOptionPane.showMessageDialog(null, "Candidate ID: " + candidateID);
         JOptionPane.showMessageDialog(null, "Position: " + position);
     }
+
     public String getCandidateInfo() {
         return "Name: " + name +
-               "\nAge: " + age +
-               "\nAddress: " + address +
-               "\nNational ID: " + nationalID +
-               "\nPosition: " + position +
-               "\nCandidate ID: " + candidateID +
-               "\n\n- - - - - - - - - - -  - - - - -  - - - - - - - - - - - - - ";
-
+                "\nAge: " + age +
+                "\nAddress: " + address +
+                "\nNational ID: " + nationalID +
+                "\nPosition: " + position +
+                "\nCandidate ID: " + candidateID +
+                "\n\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
     }
 
-   
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getNationalID() {
+        return nationalID;
+    }
+
+    public String getPosition() {
+        return position;
+    }
 }
+
+
+

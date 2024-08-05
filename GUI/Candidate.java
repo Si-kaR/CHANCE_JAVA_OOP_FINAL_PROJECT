@@ -1,5 +1,6 @@
 import javax.swing.JOptionPane;
 
+
 public class Candidate {
 
     // Attributes for Candidate
@@ -9,7 +10,7 @@ public class Candidate {
     private String manifesto;
     private String password;
 
-    // our constructor
+    // Constructor
     public Candidate(String name, String id, String partyAffiliation, String manifesto, String password) {
         this.name = name;
         this.id = id;
@@ -61,13 +62,11 @@ public class Candidate {
 
     @Override
     public String toString() {
-        return "Candidate{" + "name='" + name + ", partyAffiliation='" + partyAffiliation + ", manifesto='" + manifesto + ", password='" + password +'}';
+        return "Candidate{" +
+                "name='" + name + '\'' + ", partyAffiliation='" + partyAffiliation + '\'' + ", manifesto='" + manifesto + '\'' + ", password='" + password + '\'' +'}';
     }
 }
 
 
 
-
-
-
-//  - - - -  - - - -  - - - -  - - - -  - - - -  - - - - NO  GUI SYNTAX.........for this class
+// //  - - - -  - - - -  - - - -  - - - -  - - - -  - - - - NO  GUI SYNTAX.........for this class

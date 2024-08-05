@@ -77,6 +77,5 @@ public class Database {
         return new ArrayList<>(electionData.values());
     }
 
-
     
 }

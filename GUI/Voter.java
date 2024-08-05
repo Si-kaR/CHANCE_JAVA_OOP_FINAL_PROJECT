@@ -3,13 +3,16 @@ public class Voter {
     // Attributes For Voter
     private String id;
     private String name;
+    private int age;
     private String email;
     private String password;
 
-    // voter constructor
-    public Voter(String id, String name, String email, String password) {
+
+    // Voter constructor
+    public Voter(String id, String name, int age, String email, String password) {
         this.id = id;
         this.name = name;
+        this.age = age;
         this.email = email;
         this.password = password;
     }
@@ -31,6 +34,14 @@ public class Voter {
         this.name = name;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -49,7 +60,7 @@ public class Voter {
 
     @Override
     public String toString() {
-        return "Voter{" + "id='" + id + '\'' + ", name='" + name + '\'' + ", email='" + email + '\'' + ", password='" + password + '\'' + '}';
+        return "Voter{" + "id='" + id + '\'' +", name='" + name + '\'' + ", age=" + age + ", email='" + email + '\'' + ", password='" + password + '\'' +'}';
     }
 }
 
@@ -57,27 +68,4 @@ public class Voter {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //  - - - -  - - - -  - - - -  - - - -  - - - -  - - - - NO  GUI SYNTAX needed for this class
+// // //  - - - -  - - - -  - - - -  - - - -  - - - -  - - - - NO  GUI SYNTAX needed for this class

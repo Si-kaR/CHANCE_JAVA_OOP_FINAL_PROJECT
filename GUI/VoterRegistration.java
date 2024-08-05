@@ -1,42 +1,53 @@
 import java.util.UUID;
-
 import javax.swing.JOptionPane;
 
 public class VoterRegistration {
-
-    // attributes
+    // Attributes
     private String name;
     private int age;
     private String address;
-    private String nationalID;
+    private String id;
     private String voteID;
 
-
-    // constructor to initialize attributes and generate a unique voter ID
-    public VoterRegistration(String name, int age, String address, String nationalID) {
+    // Constructor to initialize attributes and generate a unique voter ID
+    public VoterRegistration(String name, int age, String address, String id) {
         this.name = name;
         this.age = age;
         this.address = address;
-        this.nationalID = nationalID;
+        this.id = id;
         this.voteID = UUID.randomUUID().toString();
-
     }
 
     public void displayVoterRegistration() {
-        JOptionPane.showMessageDialog(null, "\nName: " + name);
+        JOptionPane.showMessageDialog(null, "Name: " + name);
         JOptionPane.showMessageDialog(null, "Age: " + age);
         JOptionPane.showMessageDialog(null, "Address: " + address);
-        JOptionPane.showMessageDialog(null, "National ID: " + nationalID);
-        JOptionPane.showMessageDialog(null, "Candidate ID: " + voteID);
+        JOptionPane.showMessageDialog(null, "National ID: " + id);
+        JOptionPane.showMessageDialog(null, "Voter ID: " + voteID);
     }
 
     public String getVoterRegistrationInfo() {
-        return "\nName: " + name + "\nAge: " + age + "\nAddress: " + address + 
-        "\nNational ID: " + nationalID + 
-        "\nVoters ID: " + voteID + "\n\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
+        return "Name: " + name +
+                "\nAge: " + age +
+                "\nAddress: " + address +
+                "\nNational ID: " + id +
+                "\nVoter ID: " + voteID +
+                "\n\\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getId() {
+        return id;
+    }
 }
-
-
-
